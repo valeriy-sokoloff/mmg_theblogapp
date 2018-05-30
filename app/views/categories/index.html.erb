@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Categories (<%= @categories.count %>)</h1>
+
+<% @categories.each do |category| %>
+  <div class="card mb-2">
+    <div class="card-body">
+      <h5 class="card-title"><%= category.name %></h5>
+      <p class="card-text"><%= category.description %></p>
+      <%= link_to 'Show Posts', category_posts_path(category), class: 'card-link' %>
+      <%= link_to 'Edit', edit_category_path(category), class: 'card-link' %>
+      <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-link' %>
+    </div>
+  </div>
+<% end %>
+
+<br />
+
+<%= link_to 'New Category', new_category_path %>
