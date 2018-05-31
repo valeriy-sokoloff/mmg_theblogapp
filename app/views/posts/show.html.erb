@@ -9,6 +9,9 @@
         <div class="card-body">
           <h5 class="card-title"><%= @post.name %></h5>
           <p class="card-text"><%= @post.content %></p>
+          <% if @post.file.attached? %>
+            <p class="card-text"><%= link_to @post.file.blob.filename, rails_blob_path(@post.file) %></p>
+          <% end %>
         </div>
       </div>
 
