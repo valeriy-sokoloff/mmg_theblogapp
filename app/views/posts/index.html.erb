@@ -23,6 +23,11 @@
   </div>
 
   <div class="col col-md-6">
-    Category comments here
+    <% content_for :head do %>
+      <%= javascript_pack_tag 'comments_app' %>
+      <%= stylesheet_pack_tag 'comments_app' %>
+    <% end %>
+
+    <div id="comments_app" data-object-type="category" data-object-id="<%= @category.id %>"></div>
   </div>
 </div>
